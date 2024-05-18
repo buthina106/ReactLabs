@@ -1,0 +1,29 @@
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-2px) scale(1.02); 
+    transition: all 0.3s ease; 
+}
+
+.card:hover .Card-img-top {
+    transform: scale(1.2); 
+    transition: transform 0.3s ease; 
+}
+.card {
+    position: relative; /* Make sure the pseudo-element is positioned relative to the card */
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Initially transparent */
+    transition: background-color 0.3s ease; /* Smooth transition for the background color */
+    z-index: 1; /* Ensure the overlay is behind the content */
+}
+
+.card:hover::before {
+    background-color: rgba(0, 0, 0, 0.2); /* Light semi-transparent background on hover */
+}
